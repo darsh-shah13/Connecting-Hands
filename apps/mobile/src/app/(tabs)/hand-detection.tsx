@@ -1,7 +1,14 @@
 import { StyleSheet, View } from 'react-native';
 import { Text, Button, Card } from 'react-native-paper';
+import { useRouter } from 'expo-router';
 
 export default function HandDetectionScreen() {
+  const router = useRouter();
+
+  const handleStartScan = () => {
+    router.push('/hand-scan');
+  };
+
   return (
     <View style={styles.container}>
       <Card style={styles.card}>
@@ -14,7 +21,9 @@ export default function HandDetectionScreen() {
           </Text>
         </Card.Content>
         <Card.Actions>
-          <Button disabled>Start Camera (Coming Soon)</Button>
+          <Button onPress={handleStartScan}>
+            Start Hand Scan
+          </Button>
         </Card.Actions>
       </Card>
     </View>
