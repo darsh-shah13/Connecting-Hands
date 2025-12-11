@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Quick reference for common commands
+# Run: source .scripts <command>
+
+case "$1" in
+  help)
+    echo "Connecting Hands - Quick Commands"
+    echo ""
+    echo "Development:"
+    echo "  source .scripts dev          - Start all services"
+    echo "  source .scripts mobile       - Start mobile only"
+    echo "  source .scripts backend      - Start backend only"
+    echo ""
+    echo "Setup:"
+    echo "  source .scripts setup        - Install all dependencies"
+    echo "  source .scripts setup-mobile - Install mobile deps"
+    echo "  source .scripts setup-backend- Install backend deps"
+    echo ""
+    echo "Quality:"
+    echo "  source .scripts lint         - Lint all code"
+    echo "  source .scripts format       - Format all code"
+    echo ""
+    ;;
+  dev)
+    echo "Starting all services..."
+    pnpm dev
+    ;;
+  mobile)
+    echo "Starting mobile app..."
+    pnpm dev:mobile
+    ;;
+  backend)
+    echo "Starting backend..."
+    pnpm dev:backend
+    ;;
+  setup)
+    echo "Installing all dependencies..."
+    pnpm install
+    cd services/hand-modeler
+    poetry install
+    cd ../..
+    echo "Setup complete!"
+    ;;
+  setup-mobile)
+    echo "Installing mobile dependencies..."
+    pnpm install
+    ;;
+  setup-backend)
+    echo "Installing backend dependencies..."
+    cd services/hand-modeler
+    poetry install
+    cd ../..
+    ;;
+  lint)
+    echo "Linting all code..."
+    pnpm lint
+    ;;
+  format)
+    echo "Formatting all code..."
+    pnpm format
+    ;;
+  *)
+    echo "Unknown command: $1"
+    echo "Run 'source .scripts help' for available commands"
+    ;;
+esac
