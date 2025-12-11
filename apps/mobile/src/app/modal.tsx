@@ -10,15 +10,9 @@ export default function ModalScreen() {
       <Text variant="headlineMedium" style={styles.title}>
         Modal
       </Text>
-      <Text style={styles.subtitle}>
-        Press the button below to dismiss this modal.
-      </Text>
+      <Text style={styles.subtitle}>Press the button below to dismiss this modal.</Text>
 
-      <Button
-        mode="contained"
-        onPress={() => router.back()}
-        style={styles.button}
-      >
+      <Button mode="contained" onPress={() => router.back()} style={styles.button}>
         Dismiss
       </Button>
     </View>

@@ -1,8 +1,3 @@
 {
-  "extends": [
-    "../../.eslintrc.json"
-  ],
-  "env": {
-    "react-native/react-native": true
-  }
+  "extends": ["../../.eslintrc.json"]
 }

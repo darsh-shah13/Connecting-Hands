@@ -1,46 +1,56 @@
-import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useLinkBuilder, useTheme } from '@react-navigation/native';
-import * as Haptics from 'expo-haptics';
-import { SegmentedButtons } from 'react-native-paper';
-import { View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-const Tab = createBottomTabNavigator();
+import { Tabs } from 'expo-router';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
-  const { bottom } = useSafeAreaInsets();
-  const { colors } = useTheme();
-
   return (
-    <Tab.Navigator
+    <Tabs
       screenOptions={{
-        tabBarActiveTintColor: colors.primary,
         headerShown: true,
         headerTitleAlign: 'center',
         tabBarShowLabel: true,
       }}
     >
-      <Tab.Screen
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
           headerTitle: 'Connecting Hands',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
         name="hand-detection"
         options={{
           title: 'Detection',
           headerTitle: 'Hand Detection',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="hand-back-right" color={color} size={size} />
+          ),
         }}
       />
-      <Tab.Screen
+      <Tabs.Screen
+        name="ar-hand"
+        options={{
+          title: 'AR View',
+          headerTitle: 'AR Hand View',
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="augmented-reality" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
           headerTitle: 'Settings',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="cog" color={color} size={size} />
+          ),
         }}
       />
-    </Tab.Navigator>
+    </Tabs>
   );
 }

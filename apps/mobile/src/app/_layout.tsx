@@ -25,7 +25,6 @@ export default function RootLayout() {
             name="modal"
             options={{
               presentation: 'modal',
-              animationEnabled: true,
             }}
           />
         </Stack>
