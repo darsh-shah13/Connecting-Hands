@@ -1,0 +1,26 @@
+{
+  "name": "connecting-hands",
+  "version": "0.0.1",
+  "description": "A monorepo housing the Connecting-Hands mobile client and AI service",
+  "private": true,
+  "packageManager": "pnpm@8.15.4",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "dev:mobile": "pnpm -C apps/mobile dev",
+    "dev:backend": "cd services/hand-modeler && poetry run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "type-check": "pnpm -r type-check"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  }
+}
