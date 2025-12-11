@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import health, hand_detection
+from app.routers import health, hand_detection, hands
 
 app = FastAPI(
     title="Connecting Hands API",
@@ -23,6 +23,7 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, prefix="/api", tags=["health"])
 app.include_router(hand_detection.router, prefix="/api", tags=["hand-detection"])
+app.include_router(hands.router, prefix="/api", tags=["hands"])
 
 
 @app.get("/")
