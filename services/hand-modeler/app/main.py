@@ -15,6 +15,7 @@ from app.routers.sessions import router as sessions_router
 from app.routers.storage import router as storage_router
 from app.routers.users import router as users_router
 from app.storage import ensure_storage_dirs
+from app.routers import health, hand_detection, hand_scan
 
 app = FastAPI(
     title=settings.app_name,
@@ -54,6 +55,9 @@ app.include_router(users_router, prefix=settings.api_prefix, tags=["users"])
 app.include_router(sessions_router, prefix=settings.api_prefix, tags=["sessions"])
 app.include_router(hand_models_router, prefix=settings.api_prefix, tags=["hand-models"])
 app.include_router(storage_router, prefix=settings.api_prefix, tags=["storage"])
+app.include_router(health.router, prefix="/api", tags=["health"])
+app.include_router(hand_detection.router, prefix="/api", tags=["hand-detection"])
+app.include_router(hand_scan.router, prefix="/api", tags=["hand-scan"])
 
 
 @app.get("/")
