@@ -1,8 +1,5 @@
-import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useLinkBuilder, useTheme } from '@react-navigation/native';
-import * as Haptics from 'expo-haptics';
-import { SegmentedButtons } from 'react-native-paper';
-import { View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTheme } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Tab = createBottomTabNavigator();
@@ -18,6 +15,9 @@ export default function TabLayout() {
         headerShown: true,
         headerTitleAlign: 'center',
         tabBarShowLabel: true,
+        tabBarStyle: {
+          paddingBottom: bottom,
+        },
       }}
     >
       <Tab.Screen
@@ -32,6 +32,13 @@ export default function TabLayout() {
         options={{
           title: 'Detection',
           headerTitle: 'Hand Detection',
+        }}
+      />
+      <Tab.Screen
+        name="share"
+        options={{
+          title: 'Share',
+          headerTitle: 'Share',
         }}
       />
       <Tab.Screen
