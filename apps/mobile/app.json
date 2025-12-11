@@ -14,14 +14,19 @@
     },
     "ios": {
       "supportsTabletMode": true,
-      "bundleIdentifier": "com.connectinghands.mobile"
+      "bundleIdentifier": "com.connectinghands.mobile",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera for AR hand visualization.",
+        "NSMicrophoneUsageDescription": "This app does not use the microphone."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.connectinghands.mobile"
+      "package": "com.connectinghands.mobile",
+      "permissions": ["CAMERA"]
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +38,12 @@
         "expo-router",
         {
           "origin": "http://localhost:8081"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera for AR hand visualization."
         }
       ]
     ],

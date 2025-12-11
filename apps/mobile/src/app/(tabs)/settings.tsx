@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { Text, List, Switch, Divider } from 'react-native-paper';
+import { List, Switch, Divider } from 'react-native-paper';
 import { useState } from 'react';
 
 export default function SettingsScreen() {
@@ -12,35 +12,19 @@ export default function SettingsScreen() {
         <List.Subheader>App Settings</List.Subheader>
         <List.Item
           title="Notifications"
-          right={() => (
-            <Switch
-              value={notifications}
-              onValueChange={setNotifications}
-            />
-          )}
+          right={() => <Switch value={notifications} onValueChange={setNotifications} />}
         />
         <Divider />
         <List.Item
           title="Dark Mode"
-          right={() => (
-            <Switch
-              value={darkMode}
-              onValueChange={setDarkMode}
-            />
-          )}
+          right={() => <Switch value={darkMode} onValueChange={setDarkMode} />}
         />
       </List.Section>
 
       <List.Section>
         <List.Subheader>About</List.Subheader>
-        <List.Item
-          title="Version"
-          description="0.0.1"
-        />
-        <List.Item
-          title="API Endpoint"
-          description="http://localhost:8000"
-        />
+        <List.Item title="Version" description="0.0.1" />
+        <List.Item title="API Endpoint" description="http://localhost:8000" />
       </List.Section>
     </View>
   );

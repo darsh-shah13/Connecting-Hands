@@ -7,6 +7,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routers import health, hand_detection, hands
 from app.config import settings
 from app.db.session import init_db
 from app.routers import hand_detection, hands, health
@@ -57,6 +58,7 @@ app.include_router(hand_models_router, prefix=settings.api_prefix, tags=["hand-m
 app.include_router(storage_router, prefix=settings.api_prefix, tags=["storage"])
 app.include_router(health.router, prefix="/api", tags=["health"])
 app.include_router(hand_detection.router, prefix="/api", tags=["hand-detection"])
+app.include_router(hands.router, prefix="/api", tags=["hands"])
 app.include_router(hand_scan.router, prefix="/api", tags=["hand-scan"])
 
 

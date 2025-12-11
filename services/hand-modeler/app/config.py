@@ -29,6 +29,7 @@ class Settings(BaseSettings):
     cors_allow_methods: list[str] = ["*"]
     cors_allow_headers: list[str] = ["*"]
 
+    # Storage settings
     # Storage settings (hand scan pipeline)
     jobs_dir: str = "./data/jobs"
 
