@@ -1,5 +1,10 @@
 import { Tabs } from 'expo-router';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTheme } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+const Tab = createBottomTabNavigator();
 
 export default function TabLayout() {
   return (
@@ -8,6 +13,9 @@ export default function TabLayout() {
         headerShown: true,
         headerTitleAlign: 'center',
         tabBarShowLabel: true,
+        tabBarStyle: {
+          paddingBottom: bottom,
+        },
       }}
     >
       <Tabs.Screen
@@ -42,6 +50,14 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+      <Tab.Screen
+        name="share"
+        options={{
+          title: 'Share',
+          headerTitle: 'Share',
+        }}
+      />
+      <Tab.Screen
         name="settings"
         options={{
           title: 'Settings',

@@ -27,6 +27,15 @@ export default function RootLayout() {
               presentation: 'modal',
             }}
           />
+          <Stack.Screen
+            name="hand-scan"
+            options={{
+              presentation: 'modal',
+              animationEnabled: true,
+              headerShown: true,
+              headerTitle: 'Hand Scan',
+            }}
+          />
         </Stack>
       </PaperProvider>
     </GestureHandlerRootView>
