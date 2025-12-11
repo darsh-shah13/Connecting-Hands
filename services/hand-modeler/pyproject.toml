@@ -16,6 +16,19 @@ python-dotenv = "^1.0.0"
 httpx = "^0.25.1"
 sqlalchemy = "^2.0.23"
 
+# Hand scan pipeline
+python-multipart = "^0.0.6"
+numpy = "^1.26.0"
+Pillow = "^10.1.0"
+trimesh = "^4.0.0"
+
+# Optional vision dependencies (used by the MediaPipe detector)
+mediapipe = {version = "^0.10.11", optional = true}
+opencv-python = {version = "^4.9.0.80", optional = true}
+
+[tool.poetry.extras]
+vision = ["mediapipe", "opencv-python"]
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
 pytest-asyncio = "^0.21.1"

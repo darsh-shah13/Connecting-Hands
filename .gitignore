@@ -66,6 +66,9 @@ MANIFEST
 dist/
 poetry.lock
 
+# Backend runtime data
+services/hand-modeler/data/
+
 # Logs
 logs/
 *.log
