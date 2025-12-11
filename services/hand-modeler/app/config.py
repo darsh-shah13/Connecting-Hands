@@ -29,6 +29,9 @@ class Settings(BaseSettings):
     cors_allow_methods: list[str] = ["*"]
     cors_allow_headers: list[str] = ["*"]
 
+    # Storage settings (hand scan pipeline)
+    jobs_dir: str = "./data/jobs"
+
     # Model settings
     model_path: str = "./models"
     max_image_size_mb: int = 10

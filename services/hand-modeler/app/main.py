@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.db.session import init_db
-from app.routers import hand_detection, health
+from app.routers import hand_detection, hands, health
 from app.routers.hand_models import router as hand_models_router
 from app.routers.sessions import router as sessions_router
 from app.routers.storage import router as storage_router
@@ -48,6 +48,7 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, prefix=settings.api_prefix, tags=["health"])
 app.include_router(hand_detection.router, prefix=settings.api_prefix, tags=["hand-detection"])
+app.include_router(hands.router, prefix=settings.api_prefix, tags=["hands"])
 
 app.include_router(users_router, prefix=settings.api_prefix, tags=["users"])
 app.include_router(sessions_router, prefix=settings.api_prefix, tags=["sessions"])
